@@ -43,7 +43,7 @@ All user inputs are provided as a state of the controller – no events. These a
 ### URL
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/universal-game-controller@1.1.1/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/universal-game-controller@1.1.2/dist/main.js"></script>
 ```
 
 ```javascript
@@ -59,17 +59,27 @@ npm install universal-game-controller
 import { controller } from 'universal-game-controller'
 ```
 
-## Example
-```javascript
-import { controller } from 'universal-game-controller';
+## Example using URL import
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/universal-game-controller@1.1.2/dist/main.js"></script>
+    </head>
+    <body>
+        <script>
+            const controller = UniversalGameController.controller;
 
-setInterval(() => {
-  const move = controller.move;
-  console.log(`Move: X:${move.x.toFixed(2)}, Y:${move.y.toFixed(2)}`);
+            setInterval(() => {
+                const move = controller.move;
+                console.log(`Move: X:${move.x.toFixed(2)}, Y:${move.y.toFixed(2)}`);
 
-  const trigger = controller.trigger;
-  console.log(`Trigger: ${trigger}`);
-}, 100);
+                const trigger = controller.trigger;
+                console.log(`Trigger: ${trigger}`);
+            }, 100);
+        </script>
+    </body>
+</html>
 ```
 
 ## Ideas
