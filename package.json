@@ -1,10 +1,13 @@
 {
   "name": "universal-game-controller",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Simple game input for touch screen, keyboard, gamepad and mouse",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"No tests specified\"",
+    "build": "webpack --mode=production --node-env=production",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production --node-env=production"
   },
   "repository": {
     "type": "git",
@@ -25,5 +28,9 @@
   "bugs": {
     "url": "https://github.com/felixbade/universal-game-controller/issues"
   },
-  "homepage": "https://github.com/felixbade/universal-game-controller#readme"
+  "homepage": "https://github.com/felixbade/universal-game-controller#readme",
+  "devDependencies": {
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4"
+  }
 }

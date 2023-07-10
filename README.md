@@ -39,10 +39,25 @@ All user inputs are provided as a state of the controller – no events. These a
 - Otherwise touchscreen and keyboard will switch to the one that had the last input event.
 - On page load, before any user actions, type is touchscreen if [a touchscreen is present](https://hacks.mozilla.org/2013/04/detecting-touch-its-the-why-not-the-how/).
 
-## Installation
+## Importing
 
+### URL
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/universal-game-controller@1.1.0/index.js"></script>
+```
+
+```javascript
+const controller = UniversalGameController.controller
+```
+
+### NPM
 ```sh
 npm install universal-game-controller
+```
+
+```javascript
+import { controller } from 'universal-game-controller'
 ```
 
 ## Example
