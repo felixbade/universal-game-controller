@@ -4,7 +4,7 @@
 ![npm bundle size](https://img.shields.io/bundlephobia/min/universal-game-controller)
 ![NPM](https://img.shields.io/npm/l/universal-game-controller)
 
-Simple game input for touch screen, keyboard and gamepad.
+Simple game input for touch screen, keyboard and gamepad through a unified API.
 
 ## Design goals
 - Supports multiple input devices out of the box – platform agnostic API.
@@ -44,7 +44,7 @@ All user inputs are provided as a state of the controller – no events. These a
 ### URL
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/universal-game-controller@1.1.0/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/universal-game-controller@1.1.1/index.js"></script>
 ```
 
 ```javascript
