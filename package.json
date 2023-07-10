@@ -1,0 +1,29 @@
+{
+  "name": "universal-game-controller",
+  "version": "1.0.0",
+  "description": "Simple game input for touch screen, keyboard, gamepad and mouse",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felixbade/universal-game-controller.git"
+  },
+  "keywords": [
+    "game",
+    "gamepad",
+    "keyboard",
+    "touch",
+    "mobile",
+    "joystick",
+    "input",
+    "mapping"
+  ],
+  "author": "Felix Bade",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/felixbade/universal-game-controller/issues"
+  },
+  "homepage": "https://github.com/felixbade/universal-game-controller#readme"
+}
