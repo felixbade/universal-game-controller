@@ -4,12 +4,11 @@
 ![npm bundle size](https://img.shields.io/bundlephobia/min/universal-game-controller)
 ![NPM](https://img.shields.io/npm/l/universal-game-controller)
 
-Simple game input for touch screen, keyboard and gamepad through a unified API.
+Simple game input for 📱 touchscreen, 💻 keyboard and 🎮 gamepad through a unified API.
 
 ## Design goals
-- Supports multiple input devices out of the box – platform agnostic API.
+- Same code works with multiple input devices.
 - The player does not need to configure which input method they are using. All of them just work, all the time.
-- Fun to develop with in game jams.
 - Easy to explain controls to new players.
 - Robust, high performance controls – works for competitive games.
 - No input method may produce advantageous output compared to the others – for example WASD diagonal vector is not longer than analog joystick diagonal.
