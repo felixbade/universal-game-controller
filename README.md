@@ -1,4 +1,9 @@
 # Universal Game Controller
+
+![npm](https://img.shields.io/npm/v/universal-game-controller)
+![npm bundle size](https://img.shields.io/bundlephobia/min/universal-game-controller)
+![NPM](https://img.shields.io/npm/l/universal-game-controller)
+
 Simple game input for touch screen, keyboard and gamepad.
 
 ## Design goals
