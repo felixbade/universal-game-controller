@@ -168,14 +168,6 @@ class Controller {
     }
 
     get trigger() {
-        if (keysDown.has('Space')) {
-            return true
-        }
-
-        if (triggerTouchId !== null) {
-            return true
-        }
-
         if (navigator.getGamepads) {
             const gamepads = navigator.getGamepads()
             if (gamepads.length >= 1 && gamepads[0]) {
@@ -187,6 +179,14 @@ class Controller {
                     }
                 }
             }
+        }
+
+        if (keysDown.has('Space')) {
+            return true
+        }
+
+        if (triggerTouchId !== null) {
+            return true
         }
 
         return false

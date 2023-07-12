@@ -60,7 +60,7 @@ All user inputs are provided as a state of the controller – no events as of no
 ### URL
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/universal-game-controller@1.3.1/dist/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/universal-game-controller@1.3.2/dist/main.js"></script>
 ```
 
 ```javascript
@@ -83,7 +83,7 @@ import { controller } from 'universal-game-controller'
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://cdn.jsdelivr.net/npm/universal-game-controller@1.3.1/dist/main.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/universal-game-controller@1.3.2/dist/main.js"></script>
     </head>
     <body>
         <div id="instructions" style="font-family: sans-serif; width: 100%; text-align: center; font-size: 2em; padding-top: 0.3em;"></div>
