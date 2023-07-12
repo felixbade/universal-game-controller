@@ -1,3 +1,12 @@
+export const InputType = {
+    UNKNOWN: 'unknown',
+    KEYBOARD: 'keyboard',
+    TOUCH: 'touch',
+    GAMEPAD: 'gamepad'
+}
+
+let lastInput = InputType.UNKNOWN
+
 const mapv = (x, in_min, in_max, out_min, out_max) => {
     // x = in_min .. in_max
     x -= in_min
@@ -18,6 +27,7 @@ const touchJoystickMaxR = 70
 const keysDown = new Set()
 
 window.addEventListener('keydown', event => {
+    lastInput = InputType.KEYBOARD
     if (event.code === 'Space') {
         event.preventDefault()
     }
@@ -25,6 +35,7 @@ window.addEventListener('keydown', event => {
 })
 
 window.addEventListener('keyup', event => {
+    lastInput = InputType.KEYBOARD
     keysDown.delete(event.code)
 })
 
@@ -39,6 +50,7 @@ let triggerTouchId = null
 
 window.addEventListener('touchstart', event => {
     event.preventDefault()
+    lastInput = InputType.TOUCH
 
     for (const touch of event.changedTouches) {
         if (joystickTouchId === null) {
@@ -55,6 +67,7 @@ window.addEventListener('touchstart', event => {
 
 window.addEventListener('touchmove', event => {
     event.preventDefault()
+    lastInput = InputType.TOUCH
 
     for (const touch of event.changedTouches) {
         if (touch.identifier === joystickTouchId) {
@@ -78,6 +91,7 @@ window.addEventListener('touchmove', event => {
 
 window.addEventListener('touchend', event => {
     event.preventDefault()
+    lastInput = InputType.TOUCH
 
     for (const touch of event.changedTouches) {
         if (touch.identifier === joystickTouchId) {
@@ -172,6 +186,28 @@ class Controller {
         }
 
         return false
+    }
+
+    get type() {
+        if (navigator.getGamepads && navigator.getGamepads()[0]) {
+            return InputType.GAMEPAD
+        }
+
+        if (lastInput === InputType.KEYBOARD) {
+            return InputType.KEYBOARD
+        }
+
+        if (lastInput === InputType.TOUCH) {
+            return InputType.TOUCH
+        }
+
+        if (lastInput === InputType.UNKNOWN) {
+            if ('ontouchstart' in window) {
+                return InputType.TOUCH
+            } else {
+                return InputType.KEYBOARD
+            }
+        }
     }
 }
 

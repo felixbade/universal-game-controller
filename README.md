@@ -35,6 +35,7 @@ See importing instructions below.
 All user inputs are provided as a state of the controller – no events as of now. These are meant to be read in the game update loop.
 
 ### Joystick
+`controller.move`: `{ x, y }`
 - Output is a 2D vector that is guaranteed to be inside the unit circle (even if multiple controllers are used at once).
 - Gamepad: Analog left joystick (with a dead zone for drift compensation).
 - Keyboard: WASD (with diagonal length compensation).
@@ -42,12 +43,13 @@ All user inputs are provided as a state of the controller – no events as of no
 - Should be exactly (0, 0) when the user is not touching the controls – however, this is not guaranteed for gamepad, since the neutral position might vary from device to device, and there is no specification for maximum allowed drift.
 
 ### Trigger button
-- Output is a boolean
+`controller.trigger`: boolean
 - Gamepad: Button 1 (Xbox: A, Switch: B)
 - Keyboard: Space. Scrolling is prevented.
 - Touchscreen: Second touch (anywhere). The button is sustained even if the first touch ends.
 
-### Controller type (coming soon)
+### Controller type
+`controller.type`: `InputType`
 - The game can display instructions for the specific input device that the player is using.
 - If a gamepad is connected, type is always gamepad.
 - Otherwise touchscreen and keyboard will switch to the one that had the last input event.
@@ -58,7 +60,7 @@ All user inputs are provided as a state of the controller – no events as of no
 ### URL
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/universal-game-controller@1.1.6/dist/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/universal-game-controller@1.2.0/dist/main.js"></script>
 ```
 
 ```javascript
@@ -79,7 +81,7 @@ import { controller } from 'universal-game-controller'
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="https://cdn.jsdelivr.net/npm/universal-game-controller@1.1.6/dist/main.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/universal-game-controller@1.2.0/dist/main.js"></script>
     </head>
     <body>
         <div id="output" style="border: solid 2vw hsl(210, 50%, 12%); width: 20vw; height: 20vw; border-radius: 50%; position: absolute; left: calc(50% - 10vw); top: calc(50% - 10vw);"></div>
