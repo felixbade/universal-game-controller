@@ -60,11 +60,11 @@ All user inputs are provided as a state of the controller – no events as of no
 ### URL
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/universal-game-controller@1.3.0/dist/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/universal-game-controller@1.3.1/dist/main.js"></script>
 ```
 
 ```javascript
-const controller = UniversalGameController.controller
+const { controller } = UniversalGameController
 ```
 
 ### NPM
@@ -79,27 +79,45 @@ import { controller } from 'universal-game-controller'
 ## Example using URL import
 ```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <script src="https://cdn.jsdelivr.net/npm/universal-game-controller@1.3.0/dist/main.js"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/universal-game-controller@1.3.1/dist/main.js"></script>
     </head>
     <body>
-        <div id="output" style="border: solid 2vw hsl(210, 50%, 12%); width: 20vw; height: 20vw; border-radius: 50%; position: absolute; left: calc(50% - 10vw); top: calc(50% - 10vw);"></div>
+        <div id="instructions" style="font-family: sans-serif; width: 100%; text-align: center; font-size: 2em; padding-top: 0.3em;"></div>
+        <div id="container" style="border: 2vmin solid rgb(15, 31, 46); width: 80vmin; height: 80vmin; border-radius: 50%; position: absolute; left: calc(50% - 40vmin); top: calc(50% - 40vmin); display: flex; justify-content: center; align-items: center;">
+            <div id="output" style="border: 2vmin solid rgb(15, 31, 46); width: 40vmin; height: 40vmin; border-radius: 50%; transform: translate(0vmin); background-color: rgb(15, 31, 46); box-sizing: border-box;"></div>
+        </div>
         <script>
-            const controller = UniversalGameController.controller;
-
+            const { controller, InputType } = UniversalGameController;
             const output = document.querySelector('#output');
+            const instructions = document.querySelector('#instructions');
 
-            setInterval(() => {
+            const gameLoop = () => {
                 const move = controller.move;
-                output.style.transform = `translate(${move.x * 20}vw, ${move.y * 20}vw)`;
+                output.style.transform = `translate(${move.x * 25}vmin, ${move.y * 25}vmin)`;
 
                 if (controller.trigger) {
-                    output.style.backgroundColor = 'white';
+                    output.style.width = '60vmin';
+                    output.style.height = '60vmin';
                 } else {
-                    output.style.backgroundColor = 'hsl(210, 50%, 12%)';
+                    output.style.width = '30vmin';
+                    output.style.height = '30vmin';
                 }
-            }, 10);
+
+                if (controller.type === InputType.KEYBOARD) {
+                    instructions.innerText = 'Use WASD to move and space to trigger';
+                } else if (controller.type === InputType.TOUCH) {
+                    instructions.innerText = 'Use one finger to move and another to trigger';
+                } else if (controller.type === InputType.GAMEPAD) {
+                    instructions.innerText = 'Use the left stick to move and button 1 to trigger';
+                }
+
+                requestAnimationFrame(gameLoop);
+            }
+            gameLoop();
         </script>
     </body>
 </html>
