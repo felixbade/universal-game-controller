@@ -51,7 +51,7 @@ window.addEventListener('touchstart', event => {
             triggerTouchId = touch.identifier
         }
     }
-})
+}, {passive: false})
 
 window.addEventListener('touchmove', event => {
     event.preventDefault()
@@ -74,7 +74,7 @@ window.addEventListener('touchmove', event => {
             }
         }
     }
-})
+}, {passive: false})
 
 window.addEventListener('touchend', event => {
     event.preventDefault()
@@ -90,7 +90,7 @@ window.addEventListener('touchend', event => {
             triggerTouchId = null
         }
     }
-})
+}, {passive: false})
 
 
 // Combined & gamepad

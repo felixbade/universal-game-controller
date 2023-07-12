@@ -43,7 +43,7 @@ All user inputs are provided as a state of the controller – no events. These a
 ### URL
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/universal-game-controller@1.1.3/dist/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/universal-game-controller@1.1.4/dist/main.js"></script>
 ```
 
 ```javascript
@@ -64,7 +64,7 @@ import { controller } from 'universal-game-controller'
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="https://cdn.jsdelivr.net/npm/universal-game-controller@1.1.3/dist/main.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/universal-game-controller@1.1.4/dist/main.js"></script>
     </head>
     <body>
         <div id="output" style="border: solid 2vw hsl(210, 50%, 12%); width: 20vw; height: 20vw; border-radius: 50%; position: absolute; left: calc(50% - 10vw); top: calc(50% - 10vw);"></div>
