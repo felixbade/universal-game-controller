@@ -60,7 +60,7 @@ All user inputs are provided as a state of the controller – no events as of no
 ### URL
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/universal-game-controller@1.2.0/dist/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/universal-game-controller@1.3.0/dist/main.js"></script>
 ```
 
 ```javascript
@@ -81,7 +81,7 @@ import { controller } from 'universal-game-controller'
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="https://cdn.jsdelivr.net/npm/universal-game-controller@1.2.0/dist/main.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/universal-game-controller@1.3.0/dist/main.js"></script>
     </head>
     <body>
         <div id="output" style="border: solid 2vw hsl(210, 50%, 12%); width: 20vw; height: 20vw; border-radius: 50%; position: absolute; left: calc(50% - 10vw); top: calc(50% - 10vw);"></div>
@@ -119,5 +119,5 @@ import { controller } from 'universal-game-controller'
 - Anything that displays graphics (e.g. virtual joysticks).
 - Anything that requires user action to enable (e.g. motion sensor).
 - Local multiplayer. Well, maybe. Multiplayer is fun, but this gets a bit complicated to handle in a generic way. The main point of this library is to provide an opinionated mapping between different input types, and there more trade-offs with 2-player control mapping possibilities.
-- Exposing all features of each input method. If you need more, just use the vanilla API – it’s not *that* complicated.
+- Exposing all features of each input method. If you need more, just use the vanilla APIs – they are not *that* complicated.
 - XR / 3D input.

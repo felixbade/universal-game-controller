@@ -150,6 +150,9 @@ class Controller {
                         gx *= gr2 / gr
                         gy *= gr2 / gr
                     }
+                    if (gx !== 0 || gy !== 0) {
+                        lastInput = InputType.GAMEPAD
+                    }
                     x += gx
                     y += gy
                 }
@@ -179,6 +182,7 @@ class Controller {
                 const gamepad = gamepads[0]
                 if (gamepad.buttons.length >= 1) {
                     if (gamepad.buttons[0].pressed) {
+                        lastInput = InputType.GAMEPAD
                         return true
                     }
                 }
@@ -189,24 +193,20 @@ class Controller {
     }
 
     get type() {
-        if (navigator.getGamepads && navigator.getGamepads()[0]) {
+        // Check if there is input from gamepad (in case the game doesn't use it)
+        this.move
+        this.trigger
+
+        if (lastInput !== InputType.UNKNOWN) {
+            return lastInput
+
+        // No input yet, make an educated guess
+        } else if (navigator.getGamepads && navigator.getGamepads()[0]) {
             return InputType.GAMEPAD
-        }
-
-        if (lastInput === InputType.KEYBOARD) {
-            return InputType.KEYBOARD
-        }
-
-        if (lastInput === InputType.TOUCH) {
+        } else if ('ontouchstart' in window) {
             return InputType.TOUCH
-        }
-
-        if (lastInput === InputType.UNKNOWN) {
-            if ('ontouchstart' in window) {
-                return InputType.TOUCH
-            } else {
-                return InputType.KEYBOARD
-            }
+        } else {
+            return InputType.KEYBOARD
         }
     }
 }

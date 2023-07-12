@@ -1,6 +1,6 @@
 {
   "name": "universal-game-controller",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Simple game input for touch screen, keyboard, gamepad and mouse",
   "main": "src/index.js",
   "scripts": {
